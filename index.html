@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L&L Transport — Premium Car & Shuttle Services | Metro Manila</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #111318;
+    --card: #181c24;
+    --gold: #C9A84C;
+    --gold-light: #e8c96a;
+    --gold-pale: #f5e6b8;
+    --white: #f7f5f0;
+    --muted: #9a9490;
+    --border: rgba(201,168,76,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5vw;
+    background: rgba(10,10,10,0.7);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem; letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--white); }
+  
+  /* Logo Image Styling */
+  .logo-img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    margin-right: 12px;
+    border-radius: 50%;
+    background: #fff; /* Provides contrast for the black logo */
+    padding: 4px;
+  }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--white); text-decoration: none;
+    opacity: 0.75; transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--black);
+    padding: 0.6rem 1.6rem; border-radius: 2px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 7rem 5vw 4rem;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(105deg, rgba(10,10,10,0.92) 42%, rgba(10,10,10,0.55) 70%, rgba(10,10,10,0.35) 100%),
+      url('https://global.toyota/pages/news/images/2023/06/21/1330/002.jpg') center/cover no-repeat;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 15% 60%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 420px; gap: 4rem;
+    align-items: center; width: 100%; max-width: 1280px; margin: 0 auto;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,168,76,0.12); border: 1px solid var(--border);
+    padding: 0.35rem 1rem; border-radius: 2px; margin-bottom: 1.5rem;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .hero-badge span { font-size: 0.9rem; }
+  .hero-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    line-height: 0.95; letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em { color: var(--gold); font-style: normal; }
+  .hero-sub {
+    font-size: 1.05rem; line-height: 1.65;
+    color: rgba(247,245,240,0.7); max-width: 480px;
+    margin-bottom: 2.5rem; font-weight: 300;
+  }
+  .hero-pills {
+    display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+  }
+  .pill {
+    display: flex; align-items: center; gap: 0.4rem;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.45rem 1rem; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 600; color: var(--white);
+  }
+  .pill-icon { font-size: 0.95rem; }
+  .hero-stars {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.82rem; color: var(--muted);
+  }
+  .hero-stars strong { color: var(--gold); font-size: 1rem; }
+  .stars { color: var(--gold); letter-spacing: 2px; }
+
+  /* ── CONTACT FORM ── */
+  .hero-form {
+    background: rgba(18,22,30,0.95);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.4rem 2rem;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+  }
+  .form-eyebrow {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem; line-height: 1.25;
+    color: var(--white); margin-bottom: 1.8rem;
+  }
+  .form-group { margin-bottom: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  label {
+    display: block; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.4rem;
+  }
+  input, select, textarea {
+    width: 100%; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 3px; padding: 0.7rem 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; color: var(--white);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+  }
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--gold); background: rgba(201,168,76,0.06);
+  }
+  select option { background: var(--dark); color: var(--white); }
+  textarea { resize: vertical; min-height: 80px; }
+  .form-submit {
+    width: 100%; margin-top: 1.2rem;
+    background: var(--gold); color: var(--black);
+    border: none; padding: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; border-radius: 3px;
+    cursor: pointer; transition: background 0.2s, transform 0.15s;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .form-note {
+    text-align: center; margin-top: 0.9rem;
+    font-size: 0.72rem; color: var(--muted);
+  }
+  .form-note a { color: var(--gold); text-decoration: none; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 5vw; }
+  .section-inner { max-width: 1280px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.05em; line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem; color: rgba(247,245,240,0.6);
+    max-width: 560px; line-height: 1.65; font-weight: 300;
+  }
+  .divider {
+    width: 50px; height: 2px; background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  /* ── STATS BAR ── */
+  #stats {
+    padding: 3rem 5vw;
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stats-grid {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2rem; text-align: center;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3.2rem; color: var(--gold); line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--dark); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px; margin-top: 3.5rem;
+    border: 1.5px solid var(--border);
+  }
+  .service-card {
+    background: var(--card); padding: 2.5rem 2rem;
+    border: 1.5px solid var(--border);
+    transition: background 0.3s, transform 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { background: #1e2330; }
+  .service-icon {
+    font-size: 2.2rem; margin-bottom: 1.2rem;
+    display: block;
+  }
+  .service-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem; letter-spacing: 0.06em;
+    color: var(--white); margin-bottom: 0.7rem;
+  }
+  .service-desc {
+    font-size: 0.88rem; line-height: 1.65;
+    color: rgba(247,245,240,0.58); font-weight: 300;
+  }
+  .service-tag {
+    display: inline-block; margin-top: 1.2rem;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold);
+    border: 1px solid var(--border); padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+  }
+
+  /* ── WHY US ── */
+  #why {
+    background: var(--black);
+    position: relative; overflow: hidden;
+  }
+  #why::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center; margin-top: 3rem;
+  }
+  .why-visual {
+    position: relative; border-radius: 4px; overflow: hidden;
+  }
+  .why-visual img {
+    width: 100%; height: 480px; object-fit: cover; display: block;
+    filter: brightness(0.85) contrast(1.05);
+  }
+  .why-visual-badge {
+    position: absolute; bottom: 2rem; left: 2rem;
+    background: var(--gold); color: var(--black);
+    padding: 1rem 1.5rem; border-radius: 3px;
+  }
+  .why-visual-badge strong {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.4rem; display: block; line-height: 1;
+  }
+  .why-visual-badge span {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .why-list { display: flex; flex-direction: column; gap: 1.8rem; margin-top: 2rem; }
+  .why-item { display: flex; gap: 1.2rem; }
+  .why-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem; color: var(--border);
+    line-height: 1; flex-shrink: 0; width: 48px;
+    text-align: right;
+  }
+  .why-content h3 {
+    font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem;
+    letter-spacing: 0.03em;
+  }
+  .why-content p {
+    font-size: 0.86rem; color: rgba(247,245,240,0.55);
+    line-height: 1.6; font-weight: 300;
+  }
+
+  /* ── FLEET CARDS ── */
+  #gallery { background: var(--dark); }
+  .fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; margin-top: 3.5rem;
+  }
+  .fleet-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.35s ease, border-color 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .fleet-card:hover { transform: translateY(-6px); border-color: var(--gold); }
+  .fleet-card-img {
+    width: 100%; height: 240px; object-fit: cover;
+    display: block;
+    filter: brightness(0.88);
+    transition: transform 0.5s ease, filter 0.4s ease;
+  }
+  .fleet-card:hover .fleet-card-img { transform: scale(1.04); filter: brightness(1); }
+  .fleet-card-img-wrap {
+    overflow: hidden; position: relative;
+  }
+  .fleet-card-img-wrap::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.55) 0%, transparent 55%);
+  }
+  .fleet-card-badge {
+    position: absolute; top: 1rem; right: 1rem; z-index: 2;
+    background: var(--gold); color: var(--black);
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 2px;
+  }
+  .fleet-card-body {
+    padding: 1.6rem 1.8rem 2rem;
+    flex: 1; display: flex; flex-direction: column;
+  }
+  .fleet-card-eyebrow {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .fleet-card-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem; letter-spacing: 0.06em;
+    color: var(--white); margin-bottom: 0.8rem; line-height: 1;
+  }
+  .fleet-card-desc {
+    font-size: 0.85rem; line-height: 1.65;
+    color: rgba(247,245,240,0.6); font-weight: 300;
+    flex: 1;
+  }
+  .fleet-specs {
+    display: flex; gap: 1.2rem; margin-top: 1.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .fleet-spec {
+    display: flex; flex-direction: column; gap: 0.2rem;
+  }
+  .fleet-spec-label {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .fleet-spec-val {
+    font-size: 0.82rem; font-weight: 600; color: var(--white);
+  }
+
+  @media (max-width: 900px) {
+    .fleet-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── REVIEWS ── */
+  #reviews { background: var(--black); }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3.5rem;
+  }
+  .review-card {
+    background: var(--card); padding: 2rem;
+    border: 1px solid var(--border); border-radius: 3px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .review-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .review-quote {
+    font-size: 3.5rem; line-height: 0.5; color: var(--gold);
+    font-family: Georgia, serif; margin-bottom: 1rem; opacity: 0.6;
+  }
+  .review-text {
+    font-size: 0.9rem; line-height: 1.7;
+    color: rgba(247,245,240,0.75); margin-bottom: 1.5rem;
+    font-style: italic; font-weight: 300;
+  }
+  .review-footer { display: flex; align-items: center; gap: 0.8rem; }
+  .reviewer-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--gold); display: flex; align-items: center;
+    justify-content: center; font-weight: 700; color: var(--black);
+    font-size: 0.9rem; flex-shrink: 0;
+  }
+  .reviewer-name {
+    font-size: 0.85rem; font-weight: 700; color: var(--white);
+  }
+  .reviewer-role {
+    font-size: 0.75rem; color: var(--muted);
+    margin-top: 0.1rem;
+  }
+  .review-stars { margin-left: auto; color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; }
+
+  /* ── CTA BAND ── */
+  #cta {
+    padding: 5rem 5vw;
+    background: var(--gold);
+    text-align: center;
+  }
+  #cta .section-title { color: var(--black); }
+  #cta p { color: rgba(0,0,0,0.65); font-size: 1rem; max-width: 500px; margin: 0 auto 2rem; }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-dark {
+    background: var(--black); color: var(--gold);
+    padding: 1rem 2.5rem; border-radius: 2px;
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-dark:hover { background: #1a1a1a; }
+  .btn-outline-dark {
+    background: transparent; color: var(--black);
+    border: 2px solid var(--black);
+    padding: 1rem 2.5rem; border-radius: 2px;
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline-dark:hover { background: var(--black); color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black); padding: 4rem 5vw 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .footer-grid {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer-brand .nav-logo { display: flex; margin-bottom: 1rem; }
+  .footer-brand p {
+    font-size: 0.83rem; color: var(--muted);
+    line-height: 1.65; font-weight: 300;
+  }
+  .footer-col h4 {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.6rem; }
+  .footer-col ul li a {
+    font-size: 0.85rem; color: var(--muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-bottom {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 2rem; border-top: 1px solid var(--border);
+    font-size: 0.75rem; color: var(--muted);
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    background: var(--gold); color: var(--black);
+    padding: 1rem 1.8rem; border-radius: 3px;
+    font-weight: 700; font-size: 0.9rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    transform: translateY(120px); opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.7s; }
+  .hero-form { animation: fadeUp 0.8s ease 0.35s both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; max-width: 640px; }
+    .hero-form { max-width: 100%; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-visual { display: none; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-column: span 2; grid-row: span 1; height: 260px; }
+    .gallery-item:nth-child(4) { grid-column: span 1; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 1rem 4vw; }
+    .nav-links { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child, .gallery-item:nth-child(4) { grid-column: span 1; }
+    .gallery-item { height: 200px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="https://scontent.fmnl30-2.fna.fbcdn.net/v/t39.30808-6/491589098_1207432204726007_8572777477250770729_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeHr-dGvW5f8E_beTgrLv7WQ2Ufk0C7rYmbZR-TQLutiZq-NmYEaBuPso6I_eilC3JC_okpfJjjUjj2P92DOxMk1&_nc_ohc=fnADGQbETSEQ7kNvwEV6a99&_nc_oc=AdrqlwImP_lJVzOuyLU8GTAwrTXPMkx_Qgo4OF6UP6zpbLIAXuB1y3klrJWDWJoUu_8&_nc_zt=23&_nc_ht=scontent.fmnl30-2.fna&_nc_gid=38wI7XffqJy4ecDtqBoDjw&_nc_ss=7a3a8&oh=00_Af3GHrR2s0w3YkC_hABl0U2D__-hgEiwMAfqwuzYS7dWjQ&oe=69E80782" alt="L&L Transport Logo" class="logo-img">
+    <span>L&amp;L</span>&nbsp;TRANSPORT
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#gallery">Fleet</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a class="nav-cta" href="#hero">Book Now</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge"><span>⭐</span> 5.0 Rating · Metro Manila's Trusted Fleet</div>
+      <h1 class="hero-title">Ride in<br><em>Comfort.</em><br>Arrive in<br>Style.</h1>
+      <p class="hero-sub">Corporate transfers, airport pickups, shuttle services & daily rentals — all with zero hassle. Covering Quezon City, Metro Manila and beyond.</p>
+      <div class="hero-pills">
+        <div class="pill"><span class="pill-icon">✈️</span> Airport Transfers</div>
+        <div class="pill"><span class="pill-icon">🏢</span> Corporate</div>
+        <div class="pill"><span class="pill-icon">🚐</span> Shuttle Service</div>
+        <div class="pill"><span class="pill-icon">📅</span> Daily Rental</div>
+      </div>
+      <div class="hero-stars">
+        <span class="stars">★★★★★</span>
+        <strong>5.0</strong>
+        <span>Verified Reviews · Quezon City, Metro Manila</span>
+      </div>
+    </div>
+
+    <div class="hero-form">
+      <div class="form-eyebrow">Get a Free Quote</div>
+      <div class="form-title">Book Your Ride Today</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Juan">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="dela Cruz">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone / Viber</label>
+        <input type="tel" placeholder="+63 9XX XXX XXXX">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@email.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Service Type</label>
+          <select>
+            <option value="">Select...</option>
+            <option>Airport Transfer</option>
+            <option>Corporate Transport</option>
+            <option>Shuttle Service</option>
+            <option>Daily Car Rental</option>
+            <option>Event Transport</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Vehicle</label>
+          <select>
+            <option value="">Select Vehicle...</option>
+            <option>Toyota Coaster (up to 29 pax)</option>
+            <option>Toyota Alphard Hybrid (up to 7 pax)</option>
+            <option>Toyota Super Grandia Elite (up to 10 pax)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Date Needed</label>
+        <input type="date">
+      </div>
+      <div class="form-group">
+        <label>Pickup Location</label>
+        <input type="text" placeholder="e.g. NAIA Terminal 3, QC">
+      </div>
+      <div class="form-group">
+        <label>Message (Optional)</label>
+        <textarea placeholder="Any special requests or details..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">🚗 Request My Booking</button>
+      <p class="form-note">Or message us directly on <a href="https://m.me/2133592476729521" target="_blank">Facebook Messenger</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="stats">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-num">5.0★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div>
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+    <div>
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Availability</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">On-Time Guarantee</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-inner">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Our Services</h2>
+    <div class="divider"></div>
+    <p class="section-sub">From daily commutes to corporate events — we've got the right vehicle and service for every occasion.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">✈️</span>
+        <div class="service-name">Airport Transfers</div>
+        <p class="service-desc">Timely, stress-free pickups and drop-offs for all major terminals. We track your flight so you're never left waiting.</p>
+        <span class="service-tag">Most Popular</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏢</span>
+        <div class="service-name">Corporate Transport</div>
+        <p class="service-desc">Professional, punctual service for business executives, meetings, and company events. Impress clients from the first ride.</p>
+        <span class="service-tag">Premium</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🚐</span>
+        <div class="service-name">Shuttle Services</div>
+        <p class="service-desc">Group transport for schools, events, hotels, and employees. Comfortable vans and buses available for any group size.</p>
+        <span class="service-tag">Group</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🚗</span>
+        <div class="service-name">Daily Car Rental</div>
+        <p class="service-desc">Flexible daily, weekly, or monthly rentals with a driver. Explore Metro Manila and beyond at your own pace.</p>
+        <span class="service-tag">Flexible</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💒</span>
+        <div class="service-name">Events & Weddings</div>
+        <p class="service-desc">Elegant transport solutions for your special day or VIP events. Make every arrival an occasion to remember.</p>
+        <span class="service-tag">Special</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📍</span>
+        <div class="service-name">City & Intercity Tours</div>
+        <p class="service-desc">Guided or self-planned tours within Metro Manila and beyond. Knowledgeable drivers, comfortable vehicles.</p>
+        <span class="service-tag">Tours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-visual">
+        <img src="https://scontent.fmnl30-3.fna.fbcdn.net/v/t39.30808-6/613826854_1446669140802311_7316494945211507616_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=dd6889&_nc_eui2=AeF4gR-NSCeeaUd989V6ShLYAQBqU4D9Jp0BAGpTgP0mnVngeHHxzRPSq3mYsBfHdzhbbviPmBKy427LuFca2LOV&_nc_ohc=dwNmZ9j9gj4Q7kNvwHY6gV4&_nc_oc=AdouG7fwsDVgs7Ut7U5Ry-DQdQTMGgSe2GZLEQIT0gDcYCzh6X6WLynHOPPVUpcyhwg&_nc_zt=23&_nc_ht=scontent.fmnl30-3.fna&_nc_gid=HOsUvixXLgylpoeoAISQXQ&_nc_ss=7a3a8&oh=00_Af18K0zsLURWU_0nGfO1Pvyu1Xuksv5QUHaSLYNOCX9yeQ&oe=69E81FE2" alt="L&L Transport Fleet">
+        <div class="why-visual-badge">
+          <strong>100%</strong>
+          <span>Client Satisfaction</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-tag">Why Choose Us</div>
+        <h2 class="section-title">The L&L Difference</h2>
+        <div class="divider"></div>
+        <p class="section-sub">We don't just drive you from A to B — we deliver an experience that keeps clients coming back.</p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-num">01</div>
+            <div class="why-content">
+              <h3>Reliable & Always On Time</h3>
+              <p>We understand your time is valuable. Our drivers arrive early and track every flight and appointment to ensure zero delays.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">02</div>
+            <div class="why-content">
+              <h3>Affordable, Transparent Rates</h3>
+              <p>No hidden charges, no surprises. Get clear pricing upfront so you can plan your budget with confidence.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">03</div>
+            <div class="why-content">
+              <h3>Well-Maintained, Comfortable Fleet</h3>
+              <p>Our Toyota Coaster, Alphard Hybrid, and Super Grandia Elite are regularly serviced and sanitized — always spotless and ready for your journey.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">04</div>
+            <div class="why-content">
+              <h3>Professional, Courteous Drivers</h3>
+              <p>Our team is trained, licensed, and dedicated to making your ride pleasant, safe, and comfortable every time.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">05</div>
+            <div class="why-content">
+              <h3>24/7 Booking & Support</h3>
+              <p>Book any time via call, text, email, or Messenger. We're always available to accommodate last-minute requests.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="section-inner">
+    <div class="section-tag">Our Fleet</div>
+    <h2 class="section-title">Ride in Comfort</h2>
+    <div class="divider"></div>
+    <p class="section-sub">A curated fleet of clean, modern vehicles for every occasion and group size.</p>
+    <div class="fleet-grid">
+
+      <!-- Toyota Coaster -->
+      <div class="fleet-card">
+        <div class="fleet-card-img-wrap">
+          <span class="fleet-card-badge">Group Travel</span>
+          <img class="fleet-card-img"
+            src="https://www.toyota.com.la/content/dam/laos/models/bus/coaster/overview/toyota-coaster-overview.jpg"
+            alt="Toyota Coaster">
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-eyebrow">Toyota</div>
+          <div class="fleet-card-name">Coaster</div>
+          <p class="fleet-card-desc">The ideal choice for large groups — school shuttles, corporate transfers, events, and tours. Spacious, reliable, and built for the long haul with comfortable seating throughout.</p>
+          <div class="fleet-specs">
+            <div class="fleet-spec">
+              <span class="fleet-spec-label">Capacity</span>
+              <span class="fleet-spec-val">Up to 29 pax</span>
+            </div>
+            <div class="fleet-spec">
+              <span class="fleet-spec-label">Type</span>
+              <span class="fleet-spec-val">Mini Bus</span>
+            </div>
+            <div class="fleet-spec">
+              <span class="fleet-spec-label">Best For</span>
+              <span class="fleet-spec-val">Shuttle / Tours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toyota Alphard Hybrid -->
+      <div class="fleet-card">
+        <div class="fleet-card-img-wrap">
+          <span class="fleet-card-badge">Premium</span>
+          <img class="fleet-card-img"
+            src="https://superkilometerfilter.com/wp-content/uploads/2021/06/Mileage-Blocker-for-TOYOTA-ALPHARD-VELLFIRE-3rd-GEN.webp"
+            alt="Toyota Alphard Hybrid">
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-eyebrow">Toyota</div>
+          <div class="fleet-card-name">Alphard Hybrid</div>
+          <p class="fleet-card-desc">Experience executive luxury on every ride. The Alphard Hybrid delivers a first-class cabin with ultra-quiet hybrid performance — perfect for VIP clients, executives, and special events.</p>
+          <div class="fleet-specs">
+            <div class="fleet-spec">
+              <span class="fleet-spec-label">Capacity</span>
+              <span class="fleet-spec-val">Up to 7 pax</span>
+            </div>
+            <div class="fleet-spec">
+              <span class="fleet-spec-label">Type</span>
+              <span class="fleet-spec-val">Luxury MPV</span>
+            </div>
+            <div class="fleet-spec">
+              <span class="fleet-spec-label">Best For</span>
+              <span class="fleet-spec-val">VIP / Corporate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toyota Super Grandia Elite -->
+      <div class="fleet-card">
+        <div class="fleet-card-img-wrap">
+          <span class="fleet-card-badge">Elite</span>
+          <img class="fleet-card-img"
+            src="https://d1hv7ee95zft1i.cloudfront.net/custom/car-model-variant-photo/gallery/2019-toyota-hiace-super-grandia-elite-two-tone-philippines-5f7a9137a4a3b.jpg"
+            onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Toyota_HiAce_%28H300%29_Super_Grandia_Elite%2C_front_8.40.26_AM.jpg/1280px-Toyota_HiAce_%28H300%29_Super_Grandia_Elite%2C_front_8.40.26_AM.jpg'"
+            alt="Toyota Super Grandia Elite">
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-eyebrow">Toyota</div>
+          <div class="fleet-card-name">Super Grandia Elite</div>
+          <p class="fleet-card-desc">A premium passenger van combining family comfort with executive appointments. Leather seating, captain chairs, and refined interiors make every trip feel special — ideal for families and corporate groups.</p>
+          <div class="fleet-specs">
+            <div class="fleet-spec">
+              <span class="fleet-spec-label">Capacity</span>
+              <span class="fleet-spec-val">Up to 10 pax</span>
+            </div>
+            <div class="fleet-spec">
+              <span class="fleet-spec-label">Type</span>
+              <span class="fleet-spec-val">Premium Van</span>
+            </div>
+            <div class="fleet-spec">
+              <span class="fleet-spec-label">Best For</span>
+              <span class="fleet-spec-val">Family / Events</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-inner">
+    <div class="section-tag">Client Testimonials</div>
+    <h2 class="section-title">What Clients Say</h2>
+    <div class="divider"></div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Super reliable service! The driver was on time for my 4 AM airport pickup and the car was spotless. Will definitely book again for all my business trips.</p>
+        <div class="review-footer">
+          <div class="reviewer-avatar">MR</div>
+          <div>
+            <div class="reviewer-name">Miguel R.</div>
+            <div class="reviewer-role">Business Executive, Makati</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">We used L&L Transport for our company's shuttle service. Very professional and always on schedule. Our employees love it. Highly recommended!</p>
+        <div class="review-footer">
+          <div class="reviewer-avatar">AC</div>
+          <div>
+            <div class="reviewer-name">Ana C.</div>
+            <div class="reviewer-role">HR Manager, Quezon City</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Booked for our wedding and they exceeded expectations. The car was elegant, driver was courteous, and they were perfectly on time. Thank you L&L!</p>
+        <div class="review-footer">
+          <div class="reviewer-avatar">JL</div>
+          <div>
+            <div class="reviewer-name">Josie & Leo</div>
+            <div class="reviewer-role">Newlyweds, Pasig City</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Affordable rates and great service. I use them for my airport transfers every month. The booking via Messenger is so convenient and they always confirm quickly.</p>
+        <div class="review-footer">
+          <div class="reviewer-avatar">KS</div>
+          <div>
+            <div class="reviewer-name">Karl S.</div>
+            <div class="reviewer-role">Frequent Traveler</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Used their van for a family trip to Tagaytay. Comfortable, clean, and the driver knew all the best routes. Perfect family experience from start to finish.</p>
+        <div class="review-footer">
+          <div class="reviewer-avatar">RP</div>
+          <div>
+            <div class="reviewer-name">Rica P.</div>
+            <div class="reviewer-role">Family Trip, Tagaytay</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Very accommodating even for last-minute bookings. I called at 11 PM and they sorted everything out for a 5 AM flight. Incredible customer service!</p>
+        <div class="review-footer">
+          <div class="reviewer-avatar">DM</div>
+          <div>
+            <div class="reviewer-name">Dan M.</div>
+            <div class="reviewer-role">Entrepreneur, Metro Manila</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="section-title" style="margin-bottom:1rem;">Ready to Ride?</div>
+  <p>Book your comfortable, reliable, and affordable transport today. No stress, just seamless travel.</p>
+  <div class="cta-btns">
+    <a href="mailto:fmg.pineda@gmail.com" class="btn-dark">✉️ Email Us</a>
+    <a href="https://m.me/2133592476729521" target="_blank" class="btn-outline-dark">💬 Message on Messenger</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#" style="margin-bottom: 1.5rem;">
+        <img src="https://scontent.fmnl30-2.fna.fbcdn.net/v/t39.30808-6/491589098_1207432204726007_8572777477250770729_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeHr-dGvW5f8E_beTgrLv7WQ2Ufk0C7rYmbZR-TQLutiZq-NmYEaBuPso6I_eilC3JC_okpfJjjUjj2P92DOxMk1&_nc_ohc=fnADGQbETSEQ7kNvwEV6a99&_nc_oc=AdrqlwImP_lJVzOuyLU8GTAwrTXPMkx_Qgo4OF6UP6zpbLIAXuB1y3klrJWDWJoUu_8&_nc_zt=23&_nc_ht=scontent.fmnl30-2.fna&_nc_gid=38wI7XffqJy4ecDtqBoDjw&_nc_ss=7a3a8&oh=00_Af3GHrR2s0w3YkC_hABl0U2D__-hgEiwMAfqwuzYS7dWjQ&oe=69E80782" alt="L&L Transport Logo" class="logo-img">
+        <span>L&amp;L</span>&nbsp;TRANSPORT
+      </a>
+      <p>Premier car rental and shuttle services for seamless travel across Metro Manila. Reliable, affordable, and comfortable — every ride, every time.</p>
+      <div style="margin-top:1.2rem; font-size:0.82rem; color:var(--muted);">
+        <div>📧 fmg.pineda@gmail.com</div>
+        <div style="margin-top:0.4rem;">📍 M4J3+HCJ, Quezon City, Metro Manila</div>
+        <div style="margin-top:0.4rem;">🕐 Opens 8 AM · Available Daily</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Airport Transfers</a></li>
+        <li><a href="#">Corporate Transport</a></li>
+        <li><a href="#">Shuttle Services</a></li>
+        <li><a href="#">Daily Car Rental</a></li>
+        <li><a href="#">Events & Weddings</a></li>
+        <li><a href="#">City Tours</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#gallery">Our Fleet</a></li>
+        <li><a href="#reviews">Testimonials</a></li>
+        <li><a href="#services">Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:fmg.pineda@gmail.com">Email Us</a></li>
+        <li><a href="https://m.me/2133592476729521" target="_blank">Facebook Messenger</a></li>
+        <li><a href="#hero">Book Now</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 L&L Transport. All rights reserved.</span>
+    <span>Quezon City, Metro Manila, Philippines</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast">🚗 Booking request sent! We'll contact you shortly.</div>
+
+<script>
+  function submitForm() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  // Scroll-triggered fade-up for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .review-card, .why-item, .stat-num').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(10,10,10,0.97)'
+      : 'rgba(10,10,10,0.7)';
+  });
+</script>
+</body>
+</html>
